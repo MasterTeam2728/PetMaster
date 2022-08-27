@@ -49,5 +49,13 @@ public class Empleado {
         this.rolEmpleado = rolEmpleado;
     }
 
-
+    @Override
+    public String toString() {
+        return "Empleado{" +
+                "nombre='" + nombre + '\'' +
+                ", correo='" + correo + '\'' +
+                ", empresaEmpleadoPertenece='" + empresaEmpleadoPertenece + '\'' +
+                ", rolEmpleado='" + rolEmpleado + '\'' +
+                '}';
+    }
 }

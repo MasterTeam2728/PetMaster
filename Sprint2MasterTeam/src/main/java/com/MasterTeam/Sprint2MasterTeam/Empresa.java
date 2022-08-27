@@ -45,4 +45,14 @@ public class Empresa {
     public void setNitEmpresa(Integer nitEmpresa) {
         this.nitEmpresa = nitEmpresa;
     }
+
+    @Override
+    public String toString() {
+        return "Empresa{" +
+                "nombreEmpresa='" + nombreEmpresa + '\'' +
+                ", direccionEmpresa='" + direccionEmpresa + '\'' +
+                ", telefonoEmpresa=" + telefonoEmpresa +
+                ", nitEmpresa=" + nitEmpresa +
+                '}';
+    }
 }
