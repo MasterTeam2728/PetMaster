@@ -9,10 +9,10 @@ public class Sprint2MasterTeamApplication {
 
 		Empresa empresa1 = new Empresa( "USA ARMY", "kra 18 # 25 - 14", 3418524, 90735825);
 		Empresa empresa2 = new Empresa( "Cruz Roja CO", "kra 68 # 109 - 14", 123, 90915825);
-		Empleado empleado1 = new Empleado( "Jhon", "jcovenant@gmail.com", null,"Soldado");
-		Empleado empleado2 = new Empleado( "Samuel", "Samyblood@gmail.com", null,"Enfermero");
-		MovimientoDinero movimientoDinero1 = new MovimientoDinero(250000, 500000, "Pago de Alimento canino", null);
-		MovimientoDinero movimientoDinero2 = new MovimientoDinero(90000, 700000, "Compras animales y tratamientos", null);
+		Empleado empleado1 = new Empleado( "Jhon", "jcovenant@gmail.com", empresa2,"Soldado");
+		Empleado empleado2 = new Empleado( "Samuel", "Samyblood@gmail.com", empresa1,"Enfermero");
+		MovimientoDinero movimientoDinero1 = new MovimientoDinero(250000, 500000, "Pago de Alimento canino", empleado2);
+		MovimientoDinero movimientoDinero2 = new MovimientoDinero(90000, 700000, "Compras animales y tratamientos", empleado1);
 
 		List<Empleado> listaEmpleado = new ArrayList<>();
 		List<Empresa> listaEmpresa = new ArrayList<>();
