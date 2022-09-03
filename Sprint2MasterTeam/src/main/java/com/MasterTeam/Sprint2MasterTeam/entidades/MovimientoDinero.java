@@ -1,4 +1,4 @@
-package com.MasterTeam.Sprint2MasterTeam;
+package com.MasterTeam.Sprint2MasterTeam.entidades;
 
 public class MovimientoDinero {
     private double montoMovimiento;

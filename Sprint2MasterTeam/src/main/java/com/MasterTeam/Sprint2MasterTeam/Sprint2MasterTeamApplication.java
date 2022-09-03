@@ -7,7 +7,7 @@ public class Sprint2MasterTeamApplication {
 
 	public static void main(String[] args) {
 
-		Empresa empresa1 = new Empresa( "USA ARMY", "kra 18 # 25 - 14", 3418524, 90735825);
+		/*Empresa empresa1 = new Empresa( "USA ARMY", "kra 18 # 25 - 14", 3418524, 90735825);
 		Empresa empresa2 = new Empresa( "Cruz Roja CO", "kra 68 # 109 - 14", 123, 90915825);
 		Empleado empleado1 = new Empleado( "Jhon", "jcovenant@gmail.com", empresa2,"Soldado");
 		Empleado empleado2 = new Empleado( "Samuel", "Samyblood@gmail.com", empresa1,"Enfermero");
@@ -38,5 +38,6 @@ public class Sprint2MasterTeamApplication {
 		for (int i = 0; i < listaMovimientoDinero.size(); i++){
 			System.out.println(listaMovimientoDinero.get(i).toString());
 		}
+		 */
 	}
 }
