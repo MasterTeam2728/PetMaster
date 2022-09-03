@@ -1,11 +1,17 @@
 package com.MasterTeam.Sprint2MasterTeam;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@SpringBootApplication
 public class Sprint2MasterTeamApplication {
 
 	public static void main(String[] args) {
+
+		SpringApplication.run(Sprint2MasterTeamApplication.class, args);
 
 		/*Empresa empresa1 = new Empresa( "USA ARMY", "kra 18 # 25 - 14", 3418524, 90735825);
 		Empresa empresa2 = new Empresa( "Cruz Roja CO", "kra 68 # 109 - 14", 123, 90915825);

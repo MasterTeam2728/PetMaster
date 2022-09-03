@@ -2,13 +2,11 @@ package com.MasterTeam.Sprint2MasterTeam.entidades;
 
 public class MovimientoDinero {
     private double montoMovimiento;
-    private double monto;
     private String conceptoMovimiento;
-    private String usuarioMovimiento;
+    private Empleado usuarioMovimiento;
 
-    public MovimientoDinero(double montoMovimiento, double monto, String conceptoMovimiento, String usuarioMovimiento) {
+    public MovimientoDinero(double montoMovimiento, String conceptoMovimiento, Empleado usuarioMovimiento) {
         this.montoMovimiento = montoMovimiento;
-        this.monto = monto;
         this.conceptoMovimiento = conceptoMovimiento;
         this.usuarioMovimiento = usuarioMovimiento;
     }
@@ -21,14 +19,6 @@ public class MovimientoDinero {
         this.montoMovimiento = montoMovimiento;
     }
 
-    public double getMonto() {
-        return monto;
-    }
-
-    public void setMonto(double monto) {
-        this.monto = monto;
-    }
-
     public String getConceptoMovimiento() {
         return conceptoMovimiento;
     }
@@ -37,11 +27,11 @@ public class MovimientoDinero {
         this.conceptoMovimiento = conceptoMovimiento;
     }
 
-    public String getUsuarioMovimiento() {
+    public Empleado getUsuarioMovimiento() {
         return usuarioMovimiento;
     }
 
-    public void setUsuarioMovimiento(String usuarioMovimiento) {
+    public void setUsuarioMovimiento(Empleado usuarioMovimiento) {
         this.usuarioMovimiento = usuarioMovimiento;
     }
 
@@ -49,7 +39,6 @@ public class MovimientoDinero {
     public String toString() {
         return "MovimientoDinero{" +
                 "montoMovimiento=" + montoMovimiento +
-                ", monto=" + monto +
                 ", conceptoMovimiento='" + conceptoMovimiento + '\'' +
                 ", usuarioMovimiento='" + usuarioMovimiento + '\'' +
                 '}';

@@ -5,11 +5,11 @@ public class Empleado {
 
     private String nombre;
     private String correo;
-    private String empresaEmpleadoPertenece;
+    private Empresa empresaEmpleadoPertenece;
     private String rolEmpleado;
 
     //Constructor method
-    public Empleado(String nombre, String correo, String empresaEmpleadoPertenece, String rolEmpleado) {
+    public Empleado(String nombre, String correo, Empresa empresaEmpleadoPertenece, String rolEmpleado) {
         this.nombre = nombre;
         this.correo = correo;
         this.empresaEmpleadoPertenece = empresaEmpleadoPertenece;
@@ -33,11 +33,11 @@ public class Empleado {
         this.correo = correo;
     }
 
-    public String getEmpresaEmpleadoPertenece() {
+    public Empresa getEmpresaEmpleadoPertenece() {
         return empresaEmpleadoPertenece;
     }
 
-    public void setEmpresaEmpleadoPertenece(String empresaEmpleadoPertenece) {
+    public void setEmpresaEmpleadoPertenece(Empresa empresaEmpleadoPertenece) {
         this.empresaEmpleadoPertenece = empresaEmpleadoPertenece;
     }
 

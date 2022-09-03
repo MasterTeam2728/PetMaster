@@ -4,10 +4,10 @@ public class Empresa {
 
     private String nombreEmpresa;
     private String direccionEmpresa;
-    private long telefonoEmpresa;
+    private String telefonoEmpresa;
     private Integer nitEmpresa;
 
-    public Empresa(String nombreEmpresa, String direccionEmpresa, long telefonoEmpresa, Integer nitEmpresa) {
+    public Empresa(String nombreEmpresa, String direccionEmpresa, String telefonoEmpresa, Integer nitEmpresa) {
         this.nombreEmpresa = nombreEmpresa;
         this.direccionEmpresa = direccionEmpresa;
         this.telefonoEmpresa = telefonoEmpresa;
@@ -30,11 +30,11 @@ public class Empresa {
         this.direccionEmpresa = direccionEmpresa;
     }
 
-    public long getTelefonoEmpresa() {
+    public String getTelefonoEmpresa() {
         return telefonoEmpresa;
     }
 
-    public void setTelefonoEmpresa(long telefonoEmpresa) {
+    public void setTelefonoEmpresa(String telefonoEmpresa) {
         this.telefonoEmpresa = telefonoEmpresa;
     }
 
