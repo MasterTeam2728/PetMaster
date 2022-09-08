@@ -20,12 +20,12 @@ public class Empresa {
     private String telefono;
 
     @Column(name = "NIT")
-    private Integer nit;
+    private Long nit;
 
     public Empresa() {
     }
 
-    public Empresa(String nombre, String direccion, String telefono, Integer nit) {
+    public Empresa(String nombre, String direccion, String telefono, Long nit) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
@@ -56,11 +56,11 @@ public class Empresa {
         this.telefono = telefono;
     }
 
-    public Integer getNit() {
+    public Long getNit() {
         return nit;
     }
 
-    public void setNit(Integer nit) {
+    public void setNit(Long nit) {
         this.nit = nit;
     }
 
