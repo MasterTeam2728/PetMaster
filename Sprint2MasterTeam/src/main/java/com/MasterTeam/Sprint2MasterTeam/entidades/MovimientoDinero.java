@@ -1,46 +1,63 @@
 package com.MasterTeam.Sprint2MasterTeam.entidades;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="movimientoDinero")
 public class MovimientoDinero {
-    private double montoMovimiento;
-    private String conceptoMovimiento;
-    private Empleado usuarioMovimiento;
 
-    public MovimientoDinero(double montoMovimiento, String conceptoMovimiento, Empleado usuarioMovimiento) {
-        this.montoMovimiento = montoMovimiento;
-        this.conceptoMovimiento = conceptoMovimiento;
-        this.usuarioMovimiento = usuarioMovimiento;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
+    @Column(name = "monto")
+    private double monto;
+
+    @Column(name = "concepto")
+    private String concepto;
+
+    @Transient
+    private Empleado encargado;
+
+    public MovimientoDinero() {
     }
 
-    public double getMontoMovimiento() {
-        return montoMovimiento;
+    public MovimientoDinero(double monto, String concepto, Empleado encargado) {
+        this.monto = monto;
+        this.concepto = concepto;
+        this.encargado = encargado;
     }
 
-    public void setMontoMovimiento(double montoMovimiento) {
-        this.montoMovimiento = montoMovimiento;
+    public double getMonto() {
+        return monto;
     }
 
-    public String getConceptoMovimiento() {
-        return conceptoMovimiento;
+    public void setMonto(double monto) {
+        this.monto = monto;
     }
 
-    public void setConceptoMovimiento(String conceptoMovimiento) {
-        this.conceptoMovimiento = conceptoMovimiento;
+    public String getConcepto() {
+        return concepto;
     }
 
-    public Empleado getUsuarioMovimiento() {
-        return usuarioMovimiento;
+    public void setConcepto(String concepto) {
+        this.concepto = concepto;
     }
 
-    public void setUsuarioMovimiento(Empleado usuarioMovimiento) {
-        this.usuarioMovimiento = usuarioMovimiento;
+    public Empleado getEncargado() {
+        return encargado;
+    }
+
+    public void setEncargado(Empleado encargado) {
+        this.encargado = encargado;
     }
 
     @Override
     public String toString() {
         return "MovimientoDinero{" +
-                "montoMovimiento=" + montoMovimiento +
-                ", conceptoMovimiento='" + conceptoMovimiento + '\'' +
-                ", usuarioMovimiento='" + usuarioMovimiento + '\'' +
+                "monto=" + monto +
+                ", concepto='" + concepto + '\'' +
+                ", usuario='" + encargado + '\'' +
                 '}';
     }
 }

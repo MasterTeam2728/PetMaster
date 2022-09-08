@@ -1,58 +1,76 @@
 package com.MasterTeam.Sprint2MasterTeam.entidades;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="empresa")
 public class Empresa {
 
-    private String nombreEmpresa;
-    private String direccionEmpresa;
-    private String telefonoEmpresa;
-    private Integer nitEmpresa;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
-    public Empresa(String nombreEmpresa, String direccionEmpresa, String telefonoEmpresa, Integer nitEmpresa) {
-        this.nombreEmpresa = nombreEmpresa;
-        this.direccionEmpresa = direccionEmpresa;
-        this.telefonoEmpresa = telefonoEmpresa;
-        this.nitEmpresa = nitEmpresa;
+    @Column(name = "nombre")
+    private String nombre;
+
+    @Column(name = "direccion")
+    private String direccion;
+
+    @Column(name = "telefono")
+    private String telefono;
+
+    @Column(name = "NIT")
+    private Integer nit;
+
+    public Empresa() {
     }
 
-    public String getNombreEmpresa() {
-        return nombreEmpresa;
+    public Empresa(String nombre, String direccion, String telefono, Integer nit) {
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.nit = nit;
     }
 
-    public void setNombreEmpresa(String nombreEmpresa) {
-        this.nombreEmpresa = nombreEmpresa;
+    public String getNombre() {
+        return nombre;
     }
 
-    public String getDireccionEmpresa() {
-        return direccionEmpresa;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public void setDireccionEmpresa(String direccionEmpresa) {
-        this.direccionEmpresa = direccionEmpresa;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public String getTelefonoEmpresa() {
-        return telefonoEmpresa;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
-    public void setTelefonoEmpresa(String telefonoEmpresa) {
-        this.telefonoEmpresa = telefonoEmpresa;
+    public String getTelefono() {
+        return telefono;
     }
 
-    public Integer getNitEmpresa() {
-        return nitEmpresa;
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
-    public void setNitEmpresa(Integer nitEmpresa) {
-        this.nitEmpresa = nitEmpresa;
+    public Integer getNit() {
+        return nit;
+    }
+
+    public void setNit(Integer nit) {
+        this.nit = nit;
     }
 
     @Override
     public String toString() {
         return "Empresa{" +
-                "nombreEmpresa='" + nombreEmpresa + '\'' +
-                ", direccionEmpresa='" + direccionEmpresa + '\'' +
-                ", telefonoEmpresa=" + telefonoEmpresa +
-                ", nitEmpresa=" + nitEmpresa +
+                "nombre='" + nombre + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", telefono=" + telefono +
+                ", nit=" + nit +
                 '}';
     }
 }

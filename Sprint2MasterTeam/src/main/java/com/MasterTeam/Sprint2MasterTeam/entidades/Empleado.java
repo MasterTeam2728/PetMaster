@@ -1,22 +1,37 @@
 package com.MasterTeam.Sprint2MasterTeam.entidades;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="empleado")
 public class Empleado {
     //Nicolas Ortiz coding
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
+    @Column(name="nombre")
     private String nombre;
-    private String correo;
-    private Empresa empresaEmpleadoPertenece;
-    private String rolEmpleado;
 
-    //Constructor method
-    public Empleado(String nombre, String correo, Empresa empresaEmpleadoPertenece, String rolEmpleado) {
-        this.nombre = nombre;
-        this.correo = correo;
-        this.empresaEmpleadoPertenece = empresaEmpleadoPertenece;
-        this.rolEmpleado = rolEmpleado;
+    @Column(name="correo")
+    private String correo;
+
+    @Column(name="rol")
+    private String rol;
+
+    @Transient
+    private Empresa empresaEmpleado;
+
+    public Empleado() {
     }
 
-    //Getters and setters
+    public Empleado(String nombre, String correo, Empresa empresaEmpleado, String rol) {
+        this.nombre = nombre;
+        this.correo = correo;
+        this.empresaEmpleado = empresaEmpleado;
+        this.rol = rol;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -33,20 +48,20 @@ public class Empleado {
         this.correo = correo;
     }
 
-    public Empresa getEmpresaEmpleadoPertenece() {
-        return empresaEmpleadoPertenece;
+    public Empresa getEmpresaEmpleado() {
+        return empresaEmpleado;
     }
 
-    public void setEmpresaEmpleadoPertenece(Empresa empresaEmpleadoPertenece) {
-        this.empresaEmpleadoPertenece = empresaEmpleadoPertenece;
+    public void setEmpresaEmpleado(Empresa empresaEmpleado) {
+        this.empresaEmpleado = empresaEmpleado;
     }
 
-    public String getRolEmpleado() {
-        return rolEmpleado;
+    public String getRol() {
+        return rol;
     }
 
-    public void setRolEmpleado(String rolEmpleado) {
-        this.rolEmpleado = rolEmpleado;
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 
     @Override
@@ -54,8 +69,8 @@ public class Empleado {
         return "Empleado{" +
                 "nombre='" + nombre + '\'' +
                 ", correo='" + correo + '\'' +
-                ", empresaEmpleadoPertenece='" + empresaEmpleadoPertenece + '\'' +
-                ", rolEmpleado='" + rolEmpleado + '\'' +
+                ", empresaEmpleado='" + empresaEmpleado + '\'' +
+                ", rol='" + rol + '\'' +
                 '}';
     }
 }
