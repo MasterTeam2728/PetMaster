@@ -1,7 +1,0 @@
-PetMaster
-Losmaster2022mintic
-
-Host: db.rjvhffgexeonppfrkqqi.supabase.co
-Database name: postgres
-Port: 5432
-Users: postgres
