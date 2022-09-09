@@ -19,11 +19,13 @@ public class EmpresaServicios {
     public List<Empresa> getlistaEmpre(){
         return repositorioEmpre.findAll();
     }
-    //metodo para consultar una empresa
+
     //metodo para crear una empresa
     public Empresa crearEmpresa(Empresa nuevaEmpresa){
         return repositorioEmpre.save(nuevaEmpresa);
     }
+
+    //metodo para consultar una empresa
     //metodo para editar una empresa
     //metodo para eliminar una empresa
 

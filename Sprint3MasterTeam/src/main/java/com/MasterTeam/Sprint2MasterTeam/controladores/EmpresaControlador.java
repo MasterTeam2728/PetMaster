@@ -17,6 +17,7 @@ public class EmpresaControlador {
     public EmpresaControlador(EmpresaServicios serviciosEmpre){
         this.serviciosEmpre = serviciosEmpre;
     }
+
     //El sistema devuelve responses 200 en la ruta /enterprises con los siguientes verbos:
     //GET, POST
 
@@ -26,7 +27,7 @@ public class EmpresaControlador {
         return serviciosEmpre.getlistaEmpre();
     }
 
-    //Metodo consultar una Empresa
+    //Metodo crear una Empresa
     @PostMapping("/enterprises")
     public Empresa crearEmpresa(@RequestBody Empresa e){
         return serviciosEmpre.crearEmpresa(e);
