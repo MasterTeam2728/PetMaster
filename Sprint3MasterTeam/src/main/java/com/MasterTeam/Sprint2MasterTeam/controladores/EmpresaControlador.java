@@ -2,10 +2,7 @@ package com.MasterTeam.Sprint2MasterTeam.controladores;
 
 import com.MasterTeam.Sprint2MasterTeam.entidades.Empresa;
 import com.MasterTeam.Sprint2MasterTeam.servicios.EmpresaServicios;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,5 +33,18 @@ public class EmpresaControlador {
 
     // El sistema devuelve responses 200 en la ruta /enterprises/[id] con los siguientes verbos:
     //GET, PATCH, DELETE
+    @GetMapping("/enterprises/{id}")
+    public Empresa LlamarEmpresa(@PathVariable Long id){return this.serviciosEmpre.getLlamarEmpresas(id);    }
+
+    @PutMapping("/enterprises/{id}")
+    public Empresa actualizarEmpresa(@PathVariable Long id, @RequestBody Empresa actEmpresa){
+        return this.serviciosEmpre.actualizarE(id, actEmpresa);
+    }
+
+    @DeleteMapping("/enterprises/{id}")
+    public Empresa eliminarEmpresa(@PathVariable(value = "id") Long id){
+        return this.serviciosEmpre.eliminarE(id);
+    }
+
 
 }

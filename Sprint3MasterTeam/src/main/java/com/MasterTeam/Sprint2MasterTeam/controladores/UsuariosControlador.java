@@ -1,11 +1,9 @@
 package com.MasterTeam.Sprint2MasterTeam.controladores;
 
 import com.MasterTeam.Sprint2MasterTeam.entidades.Empleado;
+import com.MasterTeam.Sprint2MasterTeam.entidades.Empresa;
 import com.MasterTeam.Sprint2MasterTeam.servicios.UsuarioServicios;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,5 +33,20 @@ public class UsuariosControlador {
 
     //El sistema devuelve responses 200 en la ruta /user/[id] con los siguientes verbos:
     //GET, PATCH, DELETE
+
+    @GetMapping("/users/{id}")
+    public Empleado LlamarUsuario(@PathVariable Long id){return this.serviciosUsu.getLlamarUsuarios(id);    }
+
+    @PutMapping("/users/{id}")
+    public Empleado actualizarUsuario(@PathVariable Long id, @RequestBody Empleado actUsuario){
+        return this.serviciosUsu.actualizarU(id, actUsuario);
+    }
+
+    @DeleteMapping("/users/{id}")
+    public Empleado eliminarUsuario(@PathVariable(value = "id") Long id){
+        return this.serviciosUsu.eliminarU(id);
+    }
+
+
 
 }
