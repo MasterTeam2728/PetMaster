@@ -7,8 +7,7 @@ import javax.persistence.*;
 public class Empleado {
     //Nicolas Ortiz coding
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private long documentoIdentidad;
 
     @Column(name="nombre")
     private String nombre;
@@ -19,18 +18,14 @@ public class Empleado {
     @Column(name="rol")
     private String rol;
 
-    @Transient
+    @ManyToOne(optional = true)
+    @JoinColumn(name = "empresaEmpleado")
     private Empresa empresaEmpleado;
 
+    //Constructor Basio
     public Empleado() {
     }
 
-    public Empleado(String nombre, String correo, Empresa empresaEmpleado, String rol) {
-        this.nombre = nombre;
-        this.correo = correo;
-        this.empresaEmpleado = empresaEmpleado;
-        this.rol = rol;
-    }
 
     public String getNombre() {
         return nombre;
@@ -64,13 +59,5 @@ public class Empleado {
         this.rol = rol;
     }
 
-    @Override
-    public String toString() {
-        return "Empleado{" +
-                "nombre='" + nombre + '\'' +
-                ", correo='" + correo + '\'' +
-                ", empresaEmpleado='" + empresaEmpleado + '\'' +
-                ", rol='" + rol + '\'' +
-                '}';
-    }
+
 }

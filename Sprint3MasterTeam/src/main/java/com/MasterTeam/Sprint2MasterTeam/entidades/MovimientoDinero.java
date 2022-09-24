@@ -16,16 +16,22 @@ public class MovimientoDinero {
     @Column(name = "concepto")
     private String concepto;
 
-    @Transient
+    @ManyToOne(optional = true)
     private Empleado encargado;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "nit",nullable = false)
+    private Empresa empresas;
 
     public MovimientoDinero() {
     }
 
-    public MovimientoDinero(double monto, String concepto, Empleado encargado) {
-        this.monto = monto;
-        this.concepto = concepto;
-        this.encargado = encargado;
+    public Empresa getEmpresas() {
+        return empresas;
+    }
+
+    public void setEmpresas(Empresa empresas) {
+        this.empresas = empresas;
     }
 
     public double getMonto() {
@@ -52,12 +58,5 @@ public class MovimientoDinero {
         this.encargado = encargado;
     }
 
-    @Override
-    public String toString() {
-        return "MovimientoDinero{" +
-                "monto=" + monto +
-                ", concepto='" + concepto + '\'' +
-                ", usuario='" + encargado + '\'' +
-                '}';
-    }
+
 }

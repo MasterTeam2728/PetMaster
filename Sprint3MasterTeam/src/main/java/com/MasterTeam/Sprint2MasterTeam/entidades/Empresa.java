@@ -1,14 +1,16 @@
 package com.MasterTeam.Sprint2MasterTeam.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name="empresa")
 public class Empresa {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long nit;
 
     @Column(name = "nombre")
     private String nombre;
@@ -19,20 +21,14 @@ public class Empresa {
     @Column(name = "telefono")
     private String telefono;
 
-    @Column(name = "NIT")
-    private Long nit;
+    @OneToMany(mappedBy = "empresas")
+    @JsonIgnoreProperties(value = "empresas") //se lo agregué para no ver ese ciclo infinito en Json
+    private Set<MovimientoDinero> movimientos;
 
     public Empresa() {
     }
 
-    public Empresa(String nombre, String direccion, String telefono, Long nit) {
-        this.nombre = nombre;
-        this.direccion = direccion;
-        this.telefono = telefono;
-        this.nit = nit;
-    }
-
-    public String getNombre() {
+     public String getNombre() {
         return nombre;
     }
 
@@ -64,13 +60,10 @@ public class Empresa {
         this.nit = nit;
     }
 
-    @Override
-    public String toString() {
-        return "Empresa{" +
-                "nombre='" + nombre + '\'' +
-                ", direccion='" + direccion + '\'' +
-                ", telefono=" + telefono +
-                ", nit=" + nit +
-                '}';
+    public Set<MovimientoDinero> getMovimientos(){
+        return movimientos;
+    }
+    public void setMovimientos(Set<MovimientoDinero> movimientos) {
+        this.movimientos = movimientos;
     }
 }
