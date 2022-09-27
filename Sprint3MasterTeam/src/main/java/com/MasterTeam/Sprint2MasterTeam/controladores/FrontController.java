@@ -33,6 +33,10 @@ public class FrontController {
 
     @GetMapping("/") //ruta raíz
     public String index(Model model, @AuthenticationPrincipal OidcUser principal){
+        if (principal != null) {
+            Usuario usuario = this.serviceUs.getOrCreateUsuario(principal.getClaims());
+            model.addAttribute("usuario", usuario);
+        }
         return "index";
     }
 
