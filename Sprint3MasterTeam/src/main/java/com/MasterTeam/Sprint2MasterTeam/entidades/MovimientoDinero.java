@@ -1,5 +1,7 @@
 package com.MasterTeam.Sprint2MasterTeam.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -21,6 +23,7 @@ public class MovimientoDinero {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "nit",nullable = false)
+    @JsonIgnoreProperties(value = "movimientos")
     private Empresa empresas;
 
     public MovimientoDinero() {

@@ -1,51 +1,58 @@
 package com.MasterTeam.Sprint2MasterTeam.servicios;
 
-import com.MasterTeam.Sprint2MasterTeam.entidades.Empleado;
-import com.MasterTeam.Sprint2MasterTeam.entidades.Empresa;
+import com.MasterTeam.Sprint2MasterTeam.entidades.Usuario;
 import com.MasterTeam.Sprint2MasterTeam.repositorios.UsuarioRepositorio;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Map;
 
 @Service
 public class UsuarioServicios {
 
-    private UsuarioRepositorio repositorioUsu;
+    private UsuarioRepositorio repositorioUs;
 
-    public UsuarioServicios(UsuarioRepositorio repositorioUsu) {
-        this.repositorioUsu = repositorioUsu;
-    }
+    //cosntructor
 
-    //metodo para consultar todos los usuarios
-    public List<Empleado> getlistaEmplea(){
-        return repositorioUsu.findAll();
-    }
-    
-    //metodo para crear un usuario
-    public Empleado crearEmpleado(Empleado nuevoEmpleado){
-        return repositorioUsu.save(nuevoEmpleado);
+
+    public UsuarioServicios(UsuarioRepositorio repositorioUs) {
+        this.repositorioUs = repositorioUs;
     }
 
-    //metodo para consultar un usuario
-    public Empleado getLlamarUsuarios(Long id){
-        return this.repositorioUsu.findById(id).orElseThrow();
+    public UsuarioRepositorio getRepositorioUs() {
+        return repositorioUs;
     }
 
-    //metodo para editar un usuario
-    public Empleado actualizarU(Long id, Empleado p){
-        Empleado usuarioActual = repositorioUsu.findById(id).orElseThrow();
-        usuarioActual.setNombre(p.getNombre());
-        usuarioActual.setCorreo(p.getCorreo());
-        usuarioActual.setEmpresaEmpleado(p.getEmpresaEmpleado());
-        usuarioActual.setRol(p.getRol());
-        return this.repositorioUsu.save(usuarioActual);
+    public void setRepositorioUs(UsuarioRepositorio repositorioUs) {
+        this.repositorioUs = repositorioUs;
     }
-    //metodo para eliminar un usuario
-    public Empleado eliminarU(Long id){
-        Empleado usuarioActual = repositorioUsu.findById(id).orElseThrow(); //pero esta, muestra lo que se borró
-        this.repositorioUsu.deleteById(id);  //solo con esta línea funciona
-        //crearPaciente(pacienteActual);
-        return usuarioActual;
+
+    //métodos funcionales
+
+
+    //función que busca al usuario
+    public Usuario buscarPorEmail(String email){
+        return this.repositorioUs.findByEmail(email);
+    }
+
+    //función que guarda a un nuevo usuario
+    public Usuario crearUsuario(Usuario nuevoUsuario){
+        return this.repositorioUs.save(nuevoUsuario);
+    }
+
+    public Usuario getOrCreateUsuario(Map<String, Object> DatosUsuario){
+        String email = (String) DatosUsuario.get("email");
+        Usuario usuario = buscarPorEmail(email);
+        //validamos si el usuario exite o no
+        if (usuario == null){
+            String alias = (String) DatosUsuario.get("nickname");
+            String imagen = (String) DatosUsuario.get("picture");
+            String auth0Id = (String) DatosUsuario.get("sub");
+
+            Usuario nuevoUsuario = new Usuario(email=email, imagen=imagen, auth0Id=auth0Id);
+            return crearUsuario(nuevoUsuario);
+        }
+        System.out.println(usuario.getEmail());
+        return usuario;
     }
 
 }

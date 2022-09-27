@@ -28,7 +28,7 @@ public class Empresa {
     public Empresa() {
     }
 
-     public String getNombre() {
+    public String getNombre() {
         return nombre;
     }
 
@@ -63,6 +63,7 @@ public class Empresa {
     public Set<MovimientoDinero> getMovimientos(){
         return movimientos;
     }
+
     public void setMovimientos(Set<MovimientoDinero> movimientos) {
         this.movimientos = movimientos;
     }

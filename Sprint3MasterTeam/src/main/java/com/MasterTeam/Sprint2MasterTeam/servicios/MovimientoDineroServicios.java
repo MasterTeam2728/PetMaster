@@ -16,16 +16,17 @@ public class MovimientoDineroServicios {
         this.repositorioMov = repositorioMov;
     }
     //metodo para consultar todas los movimientos de dinero
-    public List<MovimientoDinero> getRepositorioMov(){
-        return this.repositorioMov.findAll();
+    public MovimientoDinero getLlamarMovimientos(Long id){
+        return this.repositorioMov.findById(id).orElseThrow();
     }
 
     //metodo para crear un movimiento de dinero
-    public MovimientoDinero crearMovimientoDinero(MovimientoDinero nuevaMovDinero){
-        return this.repositorioMov.save(nuevaMovDinero);
+    public MovimientoDinero crearMovimientoDinero(MovimientoDinero nuevoMovDinero){
+        return this.repositorioMov.save(nuevoMovDinero);
     }
-    public MovimientoDinero eliminarMovimientoDinero(MovimientoDinero eliminarMovDinero) {
+
+    /*public MovimientoDinero eliminarMovimientoDinero(MovimientoDinero eliminarMovDinero) {
         return this.repositorioMov.save(eliminarMovDinero);
-    }
+    }*/
 
 }

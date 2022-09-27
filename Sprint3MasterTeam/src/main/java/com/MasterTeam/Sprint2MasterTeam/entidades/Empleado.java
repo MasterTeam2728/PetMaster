@@ -18,11 +18,11 @@ public class Empleado {
     @Column(name="rol")
     private String rol;
 
-    @ManyToOne(optional = true)
-    @JoinColumn(name = "empresaEmpleado")
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "nit")
     private Empresa empresaEmpleado;
 
-    //Constructor Basio
+    //Constructor Vacio
     public Empleado() {
     }
 
@@ -59,5 +59,11 @@ public class Empleado {
         this.rol = rol;
     }
 
+    public long getDocumentoIdentidad() {
+        return documentoIdentidad;
+    }
 
+    public void setDocumentoIdentidad(long documentoIdentidad) {
+        this.documentoIdentidad = documentoIdentidad;
+    }
 }

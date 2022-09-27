@@ -2,7 +2,9 @@ package com.MasterTeam.Sprint2MasterTeam.controladores;
 
 import com.MasterTeam.Sprint2MasterTeam.entidades.Empresa;
 import com.MasterTeam.Sprint2MasterTeam.servicios.EmpresaServicios;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -19,32 +21,37 @@ public class EmpresaControlador {
     //GET, POST
 
     //Metodo consultar todas las empresas
-    @GetMapping("/enterprises")
+    /*@GetMapping("/enterprises")
     public List<Empresa> listaEmpresas(){
-        return serviciosEmpre.getlistaEmpre();
+        return serviciosEmpre.getlistaEmpresas();
     }
+     */
 
     //Metodo crear una Empresa
     @PostMapping("/enterprises")
-    public Empresa crearEmpresa(@RequestBody Empresa e){
-        return serviciosEmpre.crearEmpresa(e);
+    public RedirectView crearEmpresa(@ModelAttribute Empresa ep, Model model){
+        model.addAttribute(ep);
+        this.serviciosEmpre.crearEmpresa(ep);
+        return new RedirectView("/enterprises");
     }
 
 
     // El sistema devuelve responses 200 en la ruta /enterprises/[id] con los siguientes verbos:
     //GET, PATCH, DELETE
-    @GetMapping("/enterprises/{id}")
+    /*@GetMapping("/enterprises/{id}")
     public Empresa LlamarEmpresa(@PathVariable Long id){return this.serviciosEmpre.getLlamarEmpresas(id);    }
+     */
 
     @PutMapping("/enterprises/{id}")
-    public Empresa actualizarEmpresa(@PathVariable Long id, @RequestBody Empresa actEmpresa){
-        return this.serviciosEmpre.actualizarE(id, actEmpresa);
+    public RedirectView actualizarEmpresa(@PathVariable Long id, Empresa actEmpresa){
+        this.serviciosEmpre.actualizarE(id, actEmpresa);
+        return new RedirectView("/enterprises");
     }
 
     @DeleteMapping("/enterprises/{id}")
-    public Empresa eliminarEmpresa(@PathVariable(value = "id") Long id){
-        return this.serviciosEmpre.eliminarE(id);
+    public RedirectView eliminarEmpresa(@PathVariable(value = "id") Long id){
+        this.serviciosEmpre.eliminarE(id);
+        return new RedirectView("/enterprises");
     }
-
 
 }

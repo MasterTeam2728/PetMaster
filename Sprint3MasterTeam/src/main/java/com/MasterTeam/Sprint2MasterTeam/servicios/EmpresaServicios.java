@@ -16,13 +16,8 @@ public class EmpresaServicios {
     }
 
     //metodo para consultar todas las empresas
-    public List<Empresa> getlistaEmpre(){
-        return repositorioEmpre.findAll();
-    }
-
-    //metodo para crear una empresa
-    public Empresa crearEmpresa(Empresa nuevaEmpresa){
-        return repositorioEmpre.save(nuevaEmpresa);
+    public List<Empresa> getlistaEmpresas() {
+        return this.repositorioEmpre.findAll();
     }
 
     //metodo para consultar una empresa
@@ -30,14 +25,20 @@ public class EmpresaServicios {
         return this.repositorioEmpre.findById(id).orElseThrow();
     }
 
+
+    //metodo para crear una empresa
+    public Empresa crearEmpresa(Empresa nuevaEmpresa){
+        return repositorioEmpre.save(nuevaEmpresa);
+    }
+
+
     //metodo para editar una empresa
-    public Empresa actualizarE(Long id, Empresa p){
+    public Empresa actualizarE(Long id, Empresa emp){
         Empresa empresaActual = repositorioEmpre.findById(id).orElseThrow();
-        empresaActual.setNombre(p.getNombre());
-        empresaActual.setDireccion(p.getDireccion());
-        empresaActual.setTelefono(p.getTelefono());
-        empresaActual.setNit(p.getNit());
-        //pacienteActual.setDocumentoIdentidad(p.getDocumentoIdentidad());
+        empresaActual.setNombre(emp.getNombre());
+        empresaActual.setDireccion(emp.getDireccion());
+        empresaActual.setTelefono(emp.getTelefono());
+        //empresaActual.setNit(emp.getNit());
         return this.repositorioEmpre.save(empresaActual);
     }
 
@@ -48,5 +49,7 @@ public class EmpresaServicios {
         //crearPaciente(pacienteActual);
         return empresaActual;
     }
+
+
 
 }
