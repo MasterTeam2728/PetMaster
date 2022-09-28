@@ -26,29 +26,18 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="movimientos : ${movimientoDinero}">
-                    <td th:text="${movimientos.comcepto}"></td>
+                <tr th:each="movimientos : ${movimientos}">
+                    <td th:text="${movimientos.concepto}"></td>
                     <td th:text="${movimientos.monto}"></td>
                     <td th:text="${movimientos.encargado.nombre}"></td>
                     <td th:text="${movimientos.empresaMovimiento.nombre}"></td>
-                    <!--
-                    <td th:text="${profesionales.servicios}"></td> -->
-
-
                 </tr>
                 </tbody>
-
-
             </table>
-
-
         </div>
-
-
         <div class="px-4 py-5 my-5 text-center">
-            <a href="/interface" type="button" class="btn btn-outline-secondary btn-lg px-5 gap-3">Volver</a>
+            <a href="/enterprises" type="button" class="btn btn-outline-secondary btn-lg px-5 gap-3">Volver</a>
         </div>
-
     </div>
 
 </main>
