@@ -19,14 +19,14 @@
             <table class="table">
                 <thead class="thead-dark">
                 <tr>
-                    <th scope="col">Comcepto</th>
+                    <th scope="col">Concepto</th>
                     <th scope="col">Monto</th>
                     <th scope="col">Encargado</th>
                     <th scope="col">Empresa</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="movimientos : ${movimientos}">
+                <tr th:each="movimientos : ${movimientoDinero}">
                     <td th:text="${movimientos.concepto}"></td>
                     <td th:text="${movimientos.monto}"></td>
                     <td th:text="${movimientos.encargado.nombre}"></td>
