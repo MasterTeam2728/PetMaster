@@ -18,23 +18,31 @@ public class MovimientoDinero {
     @Column(name = "concepto")
     private String concepto;
 
-    @ManyToOne(optional = true)
+    @ManyToOne(optional = false)
     private Empleado encargado;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "nit",nullable = false)
     @JsonIgnoreProperties(value = "movimientos")
-    private Empresa empresas;
+    private Empresa empresaMovimiento;
 
     public MovimientoDinero() {
     }
 
-    public Empresa getEmpresas() {
-        return empresas;
+    public long getId() {
+        return id;
     }
 
-    public void setEmpresas(Empresa empresas) {
-        this.empresas = empresas;
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Empresa getEmpresaMovimiento() {
+        return empresaMovimiento;
+    }
+
+    public void setEmpresaMovimiento(Empresa empresaMovimiento) {
+        this.empresaMovimiento = empresaMovimiento;
     }
 
     public double getMonto() {

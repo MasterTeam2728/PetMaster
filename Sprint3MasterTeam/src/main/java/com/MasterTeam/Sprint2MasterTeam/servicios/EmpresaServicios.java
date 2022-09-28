@@ -35,7 +35,7 @@ public class EmpresaServicios {
     //metodo para editar una empresa
     public Empresa actualizarE(Long id, Empresa emp){
         Empresa empresaActual = repositorioEmpre.findById(id).orElseThrow();
-        empresaActual.setNombre(emp.getNombre());
+        empresaActual.setNombreEmpresa(emp.getNombreEmpresa());
         empresaActual.setDireccion(emp.getDireccion());
         empresaActual.setTelefono(emp.getTelefono());
         //empresaActual.setNit(emp.getNit());

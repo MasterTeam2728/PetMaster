@@ -49,7 +49,7 @@ public class EmpleadoControlador {
 
     }
 
-    @DeleteMapping("/users/{id}")
+    @DeleteMapping("/user/{id}")
     public RedirectView eliminarUsuario(@PathVariable(value = "id") Long id){
         this.serviciosUsu.eliminarEmple(id);
         return new RedirectView("/users");

@@ -60,6 +60,13 @@ public class FrontController {
         return "actualizar-empleado";
     }
 
+    /*@GetMapping("/user/{id}")
+    public String eliminarEmpleado(@PathVariable Long id, Model model){
+        Empleado empleadoDel = this.serviciosUsu.getLlamarEmpleado(id);
+        model.addAttribute("empleadoDel", empleadoDel);
+        return "empleados";
+    }     */
+
     @GetMapping("/interface")
     public String interfaces(){
         return "interface";
@@ -80,7 +87,7 @@ public class FrontController {
         return "actualizar-empresa";
     }
 
-    @GetMapping("/enterpises/new")
+    @GetMapping("/enterprise/new")
     public String nuevoEmpresa(Model model){
         model.addAttribute("empresa", new Empresa());
         return "nuevo-empresa";

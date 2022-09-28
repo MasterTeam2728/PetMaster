@@ -14,6 +14,7 @@
 <main>
   <div class="px-4 py-5 my-2 text-center">
     <h1 class="display-5 fw-bold mb-4">Empresas</h1>
+    <img src="img/pet-shop.png" class="d-block mx-auto my-5 mb-4" alt="Empresa" height="100">
     <div class="d-flex justify-content-center gap-3">
       <!-- estas son las tarjetas de cada paciente -->
       <table class="table">
@@ -31,22 +32,22 @@
         <tbody>
         <tr th:each="empresas : ${empresas}">
           <td th:text="${empresas.nit}"></td>
-          <td th:text="${empresas.nombre}"></td>
+          <td th:text="${empresas.nombreEmpresa}"></td>
           <td th:text="${empresas.direccion}"></td>
           <td th:text="${empresas.telefono}"></td>
           <!--
           <td th:text="${profesionales.servicios}"></td> -->
           <td>
-            <a href="/empresas/id" type="button" class="btn btn-primary btn-lg px-5 gap-3">Ver Movimientos</a>
+            <a href="/enterprises/{id}/movements" type="button" class="btn btn-primary btn-lg px-5 gap-3">Ver Movimientos</a>
           </td>
           <td>
-            <form th:action="@{/empresas/{id}(id=${empresas.nit})}" th:method="get">
-              <button type="submit" class="btn btn-primary">Detalles</button>
+            <form th:action="@{/enterprises/{id}(id=${empresas.nit})}" th:method="get">
+              <button type="submit" class="btn btn-primary">Modificar</button>
             </form>
           </td>
 
           <td>
-            <form th:action="@{/empresas/{id}(id=${empresas.nit})}" th:method="delete">
+            <form th:action="@{/enterprises/{id}(id=${empresas.nit})}" th:method="delete">
               <button type="submit" class="btn btn-danger">Eliminar</button>
             </form>
           </td>
@@ -63,7 +64,7 @@
 
 
     <div class="px-4 py-5 my-5 text-center">
-      <a href="/enterprises/new" type="button" class="btn btn-primary btn-lg px-5 gap-3">Crear Empresa</a>
+      <a href="/enterprise/new" type="button" class="btn btn-primary btn-lg px-5 gap-3">Crear Empresa</a>
       <a href="/interface" type="button" class="btn btn-outline-secondary btn-lg px-5 gap-3">Volver</a>
     </div>
 

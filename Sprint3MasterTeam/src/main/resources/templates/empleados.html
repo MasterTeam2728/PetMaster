@@ -23,15 +23,15 @@
           <p  th:text="${empleados.correo}"   class="card-text"></p>
           <p  th:text="${empleados.rol}"   class="card-text"></p>
           <p  th:text="${empleados.documentoIdentidad}"   class="card-text"></p>
-          <!--<p  th:text="${empleados.empresas.nit}"   class="card-text"></p>-->
+          <p  th:text="${empleados.empresaEmpleado.nombreEmpresa}"   class="card-text"></p>
 
 
           <div class="d-flex gap-1 justify-content-center">
-            <form th:action="@{/empleados/{id}(id=${empleados.documentoIdentidad})}" th:method="get">
+            <form th:action="@{/user/{id}(id=${empleados.documentoIdentidad})}" th:method="get">
               <button type="submit" class="btn btn-primary">Editar</button>
             </form>
 
-            <form th:action="@{/empleados/{id}(id=${empleados.documentoIdentidad})}" th:method="delete">
+            <form th:action="@{/user/{id}(id=${empleados.documentoIdentidad})}" th:method="delete">
               <button type="submit" class="btn btn-danger">Eliminar</button>
             </form>
           </div>

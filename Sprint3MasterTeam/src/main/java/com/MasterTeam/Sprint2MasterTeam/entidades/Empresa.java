@@ -13,7 +13,7 @@ public class Empresa {
     private Long nit;
 
     @Column(name = "nombre")
-    private String nombre;
+    private String nombreEmpresa;
 
     @Column(name = "direccion")
     private String direccion;
@@ -21,19 +21,19 @@ public class Empresa {
     @Column(name = "telefono")
     private String telefono;
 
-    @OneToMany(mappedBy = "empresas")
+    @OneToMany(mappedBy = "empresaMovimiento")
     @JsonIgnoreProperties(value = "empresas") //se lo agregué para no ver ese ciclo infinito en Json
     private Set<MovimientoDinero> movimientos;
 
     public Empresa() {
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombreEmpresa() {
+        return nombreEmpresa;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombreEmpresa(String nombreEmpresa) {
+        this.nombreEmpresa = nombreEmpresa;
     }
 
     public String getDireccion() {
