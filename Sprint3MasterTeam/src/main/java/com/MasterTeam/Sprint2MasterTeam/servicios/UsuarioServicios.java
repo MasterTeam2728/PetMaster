@@ -12,8 +12,6 @@ public class UsuarioServicios {
     private UsuarioRepositorio repositorioUs;
 
     //cosntructor
-
-
     public UsuarioServicios(UsuarioRepositorio repositorioUs) {
         this.repositorioUs = repositorioUs;
     }
@@ -51,7 +49,6 @@ public class UsuarioServicios {
             Usuario nuevoUsuario = new Usuario(email=email, imagen=imagen, auth0Id=auth0Id);
             return crearUsuario(nuevoUsuario);
         }
-        System.out.println(usuario.getEmail());
         return usuario;
     }
 

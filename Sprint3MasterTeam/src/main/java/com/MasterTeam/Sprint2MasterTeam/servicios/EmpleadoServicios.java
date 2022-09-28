@@ -1,5 +1,6 @@
 package com.MasterTeam.Sprint2MasterTeam.servicios;
 
+
 import com.MasterTeam.Sprint2MasterTeam.entidades.Empleado;
 import com.MasterTeam.Sprint2MasterTeam.repositorios.EmpleadoRepositorio;
 import org.springframework.stereotype.Service;

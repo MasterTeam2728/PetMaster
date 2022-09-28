@@ -8,7 +8,6 @@ import com.MasterTeam.Sprint2MasterTeam.servicios.EmpleadoServicios;
 import com.MasterTeam.Sprint2MasterTeam.servicios.EmpresaServicios;
 import com.MasterTeam.Sprint2MasterTeam.servicios.MovimientoDineroServicios;
 import com.MasterTeam.Sprint2MasterTeam.servicios.UsuarioServicios;
-import org.ietf.jgss.Oid;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Controller;
@@ -24,7 +23,6 @@ public class FrontController {
     EmpleadoServicios serviciosUsu;
     UsuarioServicios serviceUs;
     EmpresaServicios serviciosEmpre;
-
     MovimientoDineroServicios serviciosMov;
 
     public FrontController(EmpleadoServicios serviciosUsu, UsuarioServicios serviceUs, EmpresaServicios serviciosEmpre, MovimientoDineroServicios serviciosMov) {
@@ -38,7 +36,7 @@ public class FrontController {
 
     @GetMapping("/") //ruta raíz
     public String index(Model model, @AuthenticationPrincipal OidcUser principal){
-        if (principal != null) {
+        if(principal != null) {
             Usuario usuario = this.serviceUs.getOrCreateUsuario(principal.getClaims());
             model.addAttribute("usuario", usuario);
         }
