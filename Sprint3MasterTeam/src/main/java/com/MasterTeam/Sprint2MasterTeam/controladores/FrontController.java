@@ -2,9 +2,11 @@ package com.MasterTeam.Sprint2MasterTeam.controladores;
 
 import com.MasterTeam.Sprint2MasterTeam.entidades.Empleado;
 import com.MasterTeam.Sprint2MasterTeam.entidades.Empresa;
+import com.MasterTeam.Sprint2MasterTeam.entidades.MovimientoDinero;
 import com.MasterTeam.Sprint2MasterTeam.entidades.Usuario;
 import com.MasterTeam.Sprint2MasterTeam.servicios.EmpleadoServicios;
 import com.MasterTeam.Sprint2MasterTeam.servicios.EmpresaServicios;
+import com.MasterTeam.Sprint2MasterTeam.servicios.MovimientoDineroServicios;
 import com.MasterTeam.Sprint2MasterTeam.servicios.UsuarioServicios;
 import org.ietf.jgss.Oid;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -23,13 +25,16 @@ public class FrontController {
     UsuarioServicios serviceUs;
     EmpresaServicios serviciosEmpre;
 
-    public FrontController(EmpleadoServicios serviciosUsu, UsuarioServicios serviceUs, EmpresaServicios serviciosEmpre) {
+    MovimientoDineroServicios serviciosMov;
+
+    public FrontController(EmpleadoServicios serviciosUsu, UsuarioServicios serviceUs, EmpresaServicios serviciosEmpre, MovimientoDineroServicios serviciosMov) {
         this.serviciosUsu = serviciosUsu;
         this.serviceUs = serviceUs;
         this.serviciosEmpre = serviciosEmpre;
+        this.serviciosMov = serviciosMov;
     }
 
-//crea elementos de tipo String para visualizar las etiquetas HTML creadas
+    //crea elementos de tipo String para visualizar las etiquetas HTML creadas
 
     @GetMapping("/") //ruta raíz
     public String index(Model model, @AuthenticationPrincipal OidcUser principal){
@@ -91,6 +96,13 @@ public class FrontController {
     public String nuevoEmpresa(Model model){
         model.addAttribute("empresa", new Empresa());
         return "nuevo-empresa";
+    }
+
+    @GetMapping("/movimientos")
+    public String movimientos(Model modelP){
+        List<MovimientoDinero> movimientos = this.serviciosMov.getlistmovimientos();
+        modelP.addAttribute("movimientos", movimientos);
+        return "movimientos";
     }
 
 

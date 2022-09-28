@@ -25,6 +25,9 @@ public class MovimientoDineroServicios {
         return this.repositorioMov.save(nuevoMovDinero);
     }
 
+    public List<MovimientoDinero> getlistmovimientos(){return this.repositorioMov.findAll();
+    }
+
     /*public MovimientoDinero eliminarMovimientoDinero(MovimientoDinero eliminarMovDinero) {
         return this.repositorioMov.save(eliminarMovDinero);
     }*/

@@ -25,6 +25,8 @@ public class Empresa {
     @JsonIgnoreProperties(value = "empresas") //se lo agregué para no ver ese ciclo infinito en Json
     private Set<MovimientoDinero> movimientos;
 
+
+
     public Empresa() {
     }
 
