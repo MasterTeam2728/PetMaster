@@ -35,8 +35,8 @@ public class FrontController {
     //crea elementos de tipo String para visualizar las etiquetas HTML creadas
 
     @GetMapping("/") //ruta raíz
-    public String index(Model model, @AuthenticationPrincipal OidcUser principal){
-        if(principal != null) {
+    public String index(Model model, @AuthenticationPrincipal OidcUser principal) {
+        if (principal != null) {
             Usuario usuario = this.serviceUs.getOrCreateUsuario(principal.getClaims());
             model.addAttribute("usuario", usuario);
         }
@@ -44,20 +44,20 @@ public class FrontController {
     }
 
     @GetMapping("/users")
-    public String empleados(Model modelP){
+    public String empleados(Model modelP) {
         List<Empleado> empleados = this.serviciosUsu.getlistaEmplea();
         modelP.addAttribute("empleados", empleados);
         return "empleados";
     }
 
     @GetMapping("/user/new")
-    public String nuevoEmpleado(Model model){
+    public String nuevoEmpleado(Model model) {
         model.addAttribute("empleado", new Empleado());
         return "nuevo-empleado";
     }
 
     @GetMapping("/user/{id}")
-    public String actualizarEmpleado(@PathVariable Long id, Model model){
+    public String actualizarEmpleado(@PathVariable Long id, Model model) {
         Empleado empleadoFind = this.serviciosUsu.getLlamarEmpleado(id);
         model.addAttribute("empleadoFind", empleadoFind);
         return "actualizar-empleado";
@@ -71,12 +71,12 @@ public class FrontController {
     }     */
 
     @GetMapping("/interface")
-    public String interfaces(){
+    public String interfaces() {
         return "interface";
     }
 
     @GetMapping("/enterprises")
-    public String empresas(Model model){
+    public String empresas(Model model) {
         List<Empresa> empresas = this.serviciosEmpre.getlistaEmpresas();
         model.addAttribute("empresas", empresas);
         return "empresas";
@@ -84,25 +84,28 @@ public class FrontController {
     }
 
     @GetMapping("/enterprises/{id}")
-    public String actualizarEmpresas(@PathVariable Long id, Model model){
+    public String actualizarEmpresas(@PathVariable Long id, Model model) {
         Empresa empresaFind = this.serviciosEmpre.getLlamarEmpresas(id);
         model.addAttribute("empresaFind", empresaFind);
         return "actualizar-empresa";
     }
 
     @GetMapping("/enterprise/new")
-    public String nuevoEmpresa(Model model){
+    public String nuevoEmpresa(Model model) {
         model.addAttribute("empresa", new Empresa());
         return "nuevo-empresa";
     }
 
     @GetMapping("/movimientos")
-    public String movimientos(Model modelP){
+    public String movimientos(Model modelP) {
         List<MovimientoDinero> movimientos = this.serviciosMov.getlistmovimientos();
         modelP.addAttribute("movimientos", movimientos);
         return "movimientos";
     }
 
-
-
+    @GetMapping("/movimientos/new")
+    public String nuevoMovimiento(Model model) {
+        model.addAttribute("movimiento", new MovimientoDinero());
+        return "nuevo-movimiento";
+    }
 }
